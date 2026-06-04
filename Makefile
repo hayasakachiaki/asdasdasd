@@ -9,10 +9,6 @@ up: init
 
 init:
 	@mkdir -p $(DATA_DIR)/wordpress $(DATA_DIR)/mariadb $(SECRETS_DIR)
-	@test -f $(SECRETS_DIR)/db_password.txt || openssl rand -base64 24 > $(SECRETS_DIR)/db_password.txt
-	@test -f $(SECRETS_DIR)/db_root_password.txt || openssl rand -base64 24 > $(SECRETS_DIR)/db_root_password.txt
-	@test -f $(SECRETS_DIR)/wp_admin_password.txt || openssl rand -base64 24 > $(SECRETS_DIR)/wp_admin_password.txt
-	@test -f $(SECRETS_DIR)/wp_user_password.txt || openssl rand -base64 24 > $(SECRETS_DIR)/wp_user_password.txt
 
 down:
 	@$(COMPOSE) down --remove-orphans
