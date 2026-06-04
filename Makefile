@@ -1,6 +1,5 @@
 COMPOSE := docker-compose -f ./srcs/docker-compose.yml
 DATA_DIR := /home/mawako/data
-SECRETS_DIR := secrets
 
 all: up
 
@@ -8,7 +7,7 @@ up: init
 	@$(COMPOSE) up -d --build --remove-orphans
 
 init:
-	@mkdir -p $(DATA_DIR)/wordpress $(DATA_DIR)/mariadb $(SECRETS_DIR)
+	@mkdir -p $(DATA_DIR)/wordpress $(DATA_DIR)/mariadb
 
 down:
 	@$(COMPOSE) down --remove-orphans
